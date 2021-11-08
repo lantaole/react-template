@@ -21,6 +21,48 @@ module.exports = merge(common, {
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.less$/i,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          {
+            loader: "less-loader",
+          },
+        ],
+        exclude: path.resolve(__dirname, "../src/app.less"),
+      },
+      {
+        test: /\.less$/i,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true
+              },
+            },
+          },
+        ],
+        include: path.resolve(__dirname, "../src/app.less"),
+      },
+    ]
+  },
   devtool: "inline-source-map",
   devServer: {
     static: path.join(__dirname, "../build"),
