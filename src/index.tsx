@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import headStyle from "./style/head.css";
-// import contentStyle  from "./style/content.css";
 import './app.less'
 import CssDemo from '@/pages/CssDemo/index'
+import imgDemo from '@/assets/img/01.jpg'
 
-// const Heading = () => <h1 className={headStyle.heading}>test</h1>;
-// const Content = () => <div className={contentStyle.content}>With CSS!</div>
+
 
 
 const App = () => (
   <div>
     <CssDemo/>
+    <img className='myImg' src={imgDemo} alt=""/>
   </div>
 );
 
