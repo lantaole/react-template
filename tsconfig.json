@@ -1,4 +1,5 @@
 {
+
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
@@ -11,7 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -29,5 +30,6 @@
     ".stylelintrc.js",
     ".prettierrc.js"
   ],
-  "exclude": ["node_modules", "build", "dist"]
+  "exclude": ["node_modules", "build", "dist"],
+
 }

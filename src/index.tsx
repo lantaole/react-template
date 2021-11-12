@@ -2,15 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './app.less'
 import CssDemo from '@/pages/CssDemo/index'
-import imgDemo from '@/assets/img/01.jpg'
-
+import BasicExample from "@/pages/BasicExample";
 
 
 
 const App = () => (
   <div>
     <CssDemo/>
-    <img className='myImg' src={imgDemo} alt=""/>
+    <BasicExample/>
   </div>
 );
 
