@@ -30,6 +30,6 @@
     ".stylelintrc.js",
     ".prettierrc.js"
   ],
-  "exclude": ["node_modules", "build", "dist"],
+  "exclude": ["node_modules", "build", "dist"]
 
 }

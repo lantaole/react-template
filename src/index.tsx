@@ -1,15 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import './app.less'
-import CssDemo from '@/pages/CssDemo/index'
-import BasicExample from "@/pages/BasicExample";
-
+import BasicLayout from '@/pages/layouts/BasicLayout';
 
 
 const App = () => (
   <div>
-    <CssDemo/>
-    <BasicExample/>
+    <BasicLayout/>
   </div>
 );
 
