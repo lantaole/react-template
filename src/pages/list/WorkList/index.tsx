@@ -1,5 +1,5 @@
 import React from "react";
-const WorkList: React.FC = () => {
+const Index: React.FC = () => {
   return (
     <div>
       WorkList
@@ -7,4 +7,4 @@ const WorkList: React.FC = () => {
   );
 };
 
-export default WorkList;
+export default Index;

@@ -1,0 +1,54 @@
+@color: purple;
+
+.container {
+  .bgStyle {
+    background-image: url("https://qiniu.nsuedu.cn/react-buid-forAssets/bg.png");
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    text-align: center;
+    line-height: 300px;
+  }
+}
+
+@fontSize: 60px;
+
+@font-face {
+  font-family: "MyFont1";
+  src: url("https://qiniu.nsuedu.cn/react-buid-forAssets/font1.ttf");
+}
+
+.hello {
+  color: red;
+  font-family: "MyFont1";
+  font-size: @fontSize;
+}
+
+.iconHello {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url("https://qiniu.nsuedu.cn/react-buid-forAssets/hello.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@font-face {
+  font-family: "MyFont2";
+  src: url("https://qiniu.nsuedu.cn/react-buid-forAssets/font2.ttf");
+}
+
+.world {
+  color: red;
+  font-family: "MyFont2";
+  font-size: @fontSize;
+}
+
+.iconWorld {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url("https://qiniu.nsuedu.cn/react-buid-forAssets/world.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}

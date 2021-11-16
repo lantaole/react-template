@@ -1,12 +1,12 @@
-import BlankLayout from "@/pages/layouts/BlankLayout";
+import BlankLayout from "@/layouts/BlankLayout";
 import UserLayout from "@/pages/user/UserLayout";
-import BasicLayout from "@/pages/layouts/BasicLayout";
+import BasicLayout from "@/layouts/BasicLayout";
 import Login from "@/pages/user/Login";
 import Register from "@/pages/user/Register";
-import Home from "@/pages/home/Home";
-import ImgFontDemo from "@/pages/home/imgFontDemo";
-import UserList from "@/pages/home/list/UserList";
-import WorkList from "@/pages/home/list/WorkList";
+import Home from "@/pages/home";
+import ImgFontDemo from "@/pages/imgFontDemo";
+import UserList from "@/pages/list/WorkList";
+import WorkList from "@/pages/list/WorkList";
 
 
 export default [
