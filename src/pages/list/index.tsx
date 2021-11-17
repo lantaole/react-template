@@ -1,30 +1,31 @@
 import React from "react";
 import {
   Route,
-  Routes,
-  useNavigate
+  Switch,
+  Redirect
 } from "react-router-dom";
 
 
-import UserList from '@/pages/list/UserList'
-import WorkList from '@/pages/list/WorkList'
+import UserList from './UserList'
+import WorkList from './WorkList'
 
 
 const Index: React.FC = () => {
+
   return (
-    <Routes>
-      <Route  path="/home/list">
-        <Route path='/home/list/UserList' element={<UserList/>}>跳转</Route>
+    <Switch>
+      <Route exact path="/home/list">
+        <Redirect to="/home/list/UserList" />
       </Route>
       <Route
         path="/home/list/UserList"
-        element={<UserList/>}
+        component={UserList}
       />
       <Route
         path="/home/list/WorkList"
-        element={<WorkList/>}
+        component={WorkList}
       />
-    </Routes>
+    </Switch>
   );
 };
 

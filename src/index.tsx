@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route, useNavigate, } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import ErrorBoundary from '@/components/ErrorBoundary';
 
@@ -15,12 +15,13 @@ import {
 import type { menuType } from '@/utils/commonDataTypes'
 
 import './app.less';
-
-let navigate = useNavigate();
-
-
+interface Props {
+  // any props that come into the component
+  exact?: boolean,
+  path: string
+}
 // 封装 Route以便用于权限校验
-function PrivateRoute({ children, ...rest }) {
+const PrivateRoute:React.FC<Props> = ({ children, ...rest }) => {
   // 获取用户权限以验证当前路径是否可以访问
   const auth = useAuth();
 
@@ -32,9 +33,12 @@ function PrivateRoute({ children, ...rest }) {
         auth.user || location.pathname.includes('user') ? (
           children
         ) : (
-          navigate('/user/login')
-        // state: { from: location }
-
+          <Redirect
+            to={{
+              pathname: "/user/login",
+              state: { from: location }
+            }}
+          />
         )
       }
     />
@@ -54,7 +58,7 @@ const RouteWithSubRoutes = (routeDatas: menuType[]) => {
           render={props => Array.isArray(item.routes) && item.routes.length > 0 ? (
             // item.component 是 BasicLayout，UserLayout，BlankLayout其中一个布局
             <item.component {...props}>
-              <Routes>
+              <Switch>
                 <PrivateRoute exact path={item.path}>
                   <Redirect to={item.routes[0].path} />
                 </PrivateRoute>
@@ -62,7 +66,7 @@ const RouteWithSubRoutes = (routeDatas: menuType[]) => {
                 <Route path="*">
                   <NoMatch />
                 </Route>
-              </Routes>
+              </Switch>
             </item.component>
           ) : (
             <Redirect
@@ -76,9 +80,9 @@ const RouteWithSubRoutes = (routeDatas: menuType[]) => {
 
       }
       //  使用 PrivateRoute组件替换 Route组件
-      return <PrivateRoute path={item.path} key={item.path}>
+      return (<PrivateRoute path={item.path} key={item.path}>
         <item.component />
-      </PrivateRoute>
+      </PrivateRoute>)
     })
   }
   return null
@@ -89,9 +93,9 @@ function Index() {
   return (
     <ProvideAuth>
       <Router>
-        <Routes>
+        <Switch>
           {RouteWithSubRoutes(routes)}
-        </Routes>
+        </Switch>
       </Router>
     </ProvideAuth>
   );
