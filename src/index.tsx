@@ -1,6 +1,6 @@
-import React, { } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import ErrorBoundary from '@/components/ErrorBoundary';
 
@@ -15,13 +15,9 @@ import {
 import type { menuType } from '@/utils/commonDataTypes'
 
 import './app.less';
-interface Props {
-  // any props that come into the component
-  exact?: boolean,
-  path: string
-}
+
 // 封装 Route以便用于权限校验
-const PrivateRoute:React.FC<Props> = ({ children, ...rest }) => {
+function PrivateRoute({ children, ...rest }) {
   // 获取用户权限以验证当前路径是否可以访问
   const auth = useAuth();
 
@@ -80,9 +76,9 @@ const RouteWithSubRoutes = (routeDatas: menuType[]) => {
 
       }
       //  使用 PrivateRoute组件替换 Route组件
-      return (<PrivateRoute path={item.path} key={item.path}>
+      return <PrivateRoute path={item.path} key={item.path}>
         <item.component />
-      </PrivateRoute>)
+      </PrivateRoute>
     })
   }
   return null
